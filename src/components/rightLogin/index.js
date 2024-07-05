@@ -23,11 +23,24 @@ export default function RightLogin(){
         setEstado2('Login')
     }
 
-    function mostrarVariaveis(e){
+    /*function mostrarVariaveis(e){
         e.preventDefault()
         console.log(estado)
         console.log(estado2)
     }
+    */
+
+    function maiorQueOito(senha){
+        if (senha.length >= 8){
+            return <p>Maior igual que 8</p>
+        } else {
+            return <p>Precisa conter mais de 8 caracteres</p>
+        }
+    }
+
+    const [senha, setSenha] = useState()
+    const [senhaRegistrar, setSenhaRegistrar] = useState()
+    const [senhaConfirmar, setSenhaConfirmar] = useState()
 
     return(
         <div className={styles.rightLogin}>
@@ -57,9 +70,15 @@ export default function RightLogin(){
                                     <label htmlFor="usuario">Digite seu email para registrar</label>
                                     <input type="text" name="usuario" placeholder="Usuário"/>
                                 </div>
-                                <div className={styles.textField}>
+                                <div className={styles.senhaRegistrar}>
                                     <label htmlFor="senha">Sua senha</label>
-                                    <input type="password" placeholder="Senha"/>
+                                    <input type="password" placeholder="Senha" onChange={(e) => setSenhaRegistrar(e.target.value)}/>
+                                    <ul className={styles.VerificadorSenha} type="none">
+                                        
+                                        <li>{senhaRegistrar && (maiorQueOito(senhaRegistrar))}</li>
+                                        <li>Precisa possuir um maiúsculo</li>
+                                        <li>Precisa possuir um número</li>
+                                    </ul>
                                 </div>
                                 <div className={styles.textField}>
                                     <label htmlFor="senhaConfirmada">Repita a senha</label>
@@ -70,7 +89,7 @@ export default function RightLogin(){
                             </form>
                         </>
                 )}
-                <button onClick={mostrarVariaveis}>Mostrar o valor das variaveis</button>
+                {/*<button onClick={mostrarVariaveis}>Mostrar o valor das variaveis</button>*/}
             </div>
         </div>
     );
