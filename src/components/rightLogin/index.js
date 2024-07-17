@@ -1,11 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styles from "./rightLogin.module.css"
 
 export default function RightLogin(){
 
     // Const criada para definir se vai ser login ou register
-    let estado = 'Login'
-    const [estado2, setEstado2] = useState()
+    const [estado2, setEstado2] = useState('Login')
 
     function cadastrarUsuario(e){
         e.preventDefault()
@@ -13,13 +12,11 @@ export default function RightLogin(){
 
     function mudarParaRegistro(e){
         e.preventDefault()
-        estado = 'Registrar'
         setEstado2('Registrar')
     }
 
     function mudarParaLogin(e){
         e.preventDefault()
-        estado = 'Login'
         setEstado2('Login')
     }
 
@@ -32,20 +29,70 @@ export default function RightLogin(){
 
     function maiorQueOito(senha){
         if (senha.length >= 8){
-            return <p>Maior igual que 8</p>
+            return <li>Maior igual que 8</li>
         } else {
-            return <p>Precisa conter mais de 8 caracteres</p>
+            return <li>Precisa conter mais de 8 caracteres</li>
         }
+    }
+
+    function lacoDeValidacao(array, arrayComparativo){
+        /*
+        O primeiro array é o que vamos comparar
+        O segundo array é o de base, exemplo: alfabeto, números, etc.
+        */
+        for (var j = 0; j++ <= array.length; j++){
+            for (var i = 0; i <= 26; i++){
+                console.log(array[j], arrayComparativo[i])
+                if (array[j] === arrayComparativo[i] && array[j] !== undefined) {
+                    console.log(array[j], arrayComparativo[i], 'Funcionou!')
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    function algumMaiusculo(senha){
+        let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+        if (lacoDeValidacao(senha, alfabeto)){
+            return <li>Possui maiúscula</li>
+        } else {
+            return <li>Não possui maiúscula</li>
+        }
+        /*
+        for (var j = 0; j++ <= senha.length; j++){
+            for (var i = 0; i <= 26; i++){
+                if (senha[j] === alfabeto[i] && senha[j] !== undefined) {
+                    return <li>Possui maiúscula</li>
+                }
+            }
+        }
+        
+        return <li>Não possui maiúscula</li>  
+        */
+        
+    }
+
+    function algumNumero(senha){
+        let numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+        
+
     }
 
     const [senha, setSenha] = useState()
     const [senhaRegistrar, setSenhaRegistrar] = useState()
     const [senhaConfirmar, setSenhaConfirmar] = useState()
 
+    useEffect = (() => {
+        console.log('Mudou o valor');
+    }, [senhaRegistrar]);
+
     return(
         <div className={styles.rightLogin}>
             <div className={styles.cartaoDeLogin}>
-                {estado2==='Login' || estado2===undefined ? (
+                {estado2==='Login'? (
                         <>
                             <h1>Login</h1>
                             <form>
@@ -72,11 +119,8 @@ export default function RightLogin(){
                                 </div>
                                 <div className={styles.senhaRegistrar}>
                                     <label htmlFor="senha">Sua senha</label>
-                                    <input type="password" placeholder="Senha" onChange={(e) => setSenhaRegistrar(e.target.value)}/>
+                                    <input type="text" placeholder="Senha" onChange={(e) => setSenhaRegistrar(e.target.value)}/>
                                     <ul className={styles.VerificadorSenha} type="none">
-                                        
-                                        <li>{senhaRegistrar && (maiorQueOito(senhaRegistrar))}</li>
-                                        <li>Precisa possuir um maiúsculo</li>
                                         <li>Precisa possuir um número</li>
                                     </ul>
                                 </div>
