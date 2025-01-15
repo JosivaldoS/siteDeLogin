@@ -32,8 +32,8 @@ Criei este site para aplicar conceitos fundamentais de React, juntamente com con
 ---
  ## **📦 Como rodar o projeto** 
 ### **1. Clone este repositório:**
-```
-bash git clone <URL_DO_REPOSITORIO>
+```bash
+git clone <URL_DO_REPOSITORIO>
 ```
 #### **2. Entre na pasta do projeto**
 
