@@ -31,7 +31,7 @@ Criei este site para aplicar conceitos fundamentais de React, juntamente com con
  ![Prévia](https://github.com/JosivaldoS/siteDeLogin/assets/77576339/6533dc86-95bf-4056-9932-b8c07fee91fc)
 ---
  ## **📦 Como rodar o projeto** 
- 1. Clone este repositório:
+### **1. Clone este repositório:**
 ```
 bash git clone <URL_DO_REPOSITORIO>
 ```
