@@ -1,7 +1,7 @@
 # **Site de Login** 
 Este é um projeto simples que desenvolvi usando React para praticar e consolidar meus conhecimentos. 🚀 
 
---- 
+ 
 ## **🧐 Qual o intuito?**
 Criei este site para aplicar conceitos fundamentais de React, juntamente com conhecimentos prévios de HTML e CSS. Foi um ótimo desafio, e com a ajuda de recursos disponíveis na internet, consegui alcançar um resultado que me deixa muito satisfeito!
 
@@ -35,5 +35,9 @@ Criei este site para aplicar conceitos fundamentais de React, juntamente com con
 ```
 bash git clone <URL_DO_REPOSITORIO>
 ```
+#### **2. Entre na pasta do projeto**
+```markdown
+```bash
+cd site-de-login
 
 
