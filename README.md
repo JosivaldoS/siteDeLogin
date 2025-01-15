@@ -36,8 +36,8 @@ Criei este site para aplicar conceitos fundamentais de React, juntamente com con
 bash git clone <URL_DO_REPOSITORIO>
 ```
 #### **2. Entre na pasta do projeto**
-```markdown
-```bash
+
+```
 cd site-de-login
 
 
